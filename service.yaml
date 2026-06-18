@@ -3,7 +3,12 @@ kind: Service
 metadata:
   name: iot-playground-service
 spec:
-  ports:
-  - port: 8888
   selector:
     app: iot-playground
+  ports:
+  - name: iot-playground-port
+    port: 8888
+    targetPort: 4242
+    protocol: TCP
+  type:
+    LoadBalancer
