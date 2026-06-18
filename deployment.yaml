@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iot-playground
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iot-playground
+  template:
+    metadata:
+      labels:
+        app: iot-playground
+    spec:
+      containers:
+      - image: wil42/playground:v2
+      name: wil42-playground
+      ports:
+      - containerPort: 8888 
